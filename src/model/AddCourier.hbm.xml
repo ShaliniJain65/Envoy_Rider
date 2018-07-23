@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 14, 2017 10:49:44 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.model.AddCourier" table="ADDCOURIER">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="courierid" type="long">
+            <column name="COURIERID" />
+        </property>
+        <property name="userEmail" type="java.lang.String">
+            <column name="USEREMAIL" />
+        </property>
+        <property name="mode" type="java.lang.String">
+            <column name="MODE" />
+        </property>
+        <property name="sourceaddress" type="java.lang.String">
+            <column name="SOURCEADDRESS" />
+        </property>
+        <property name="sourcecity" type="java.lang.String">
+            <column name="SOURCECITY" />
+        </property>
+        <property name="destinationaddress" type="java.lang.String">
+            <column name="DESTINATIONADDRESS" />
+        </property>
+        <property name="destinationcity" type="java.lang.String">
+            <column name="DESTINATIONCITY" />
+        </property>
+        <property name="weight" type="int">
+            <column name="WEIGHT" />
+        </property>
+        <property name="quantity" type="int">
+            <column name="QUANTITY" />
+        </property>
+    </class>
+</hibernate-mapping>

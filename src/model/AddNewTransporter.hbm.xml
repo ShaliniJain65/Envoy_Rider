@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 14, 2017 10:30:36 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.model.AddNewTransporter" table="ADDNEWTRANSPORTER">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="mode" type="java.lang.String" access="field">
+            <column name="MODE" />
+        </property>
+        <property name="companyname" type="java.lang.String">
+            <column name="COMPANYNAME" />
+        </property>
+        <property name="contactno" type="java.lang.String">
+            <column name="CONTACTNO" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+    </class>
+</hibernate-mapping>

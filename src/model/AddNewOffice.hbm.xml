@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 14, 2017 10:30:36 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.model.AddNewOffice" table="ADDNEWOFFICE">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="officeName" type="java.lang.String">
+            <column name="OFFICENAME" />
+        </property>
+        <property name="ownerName" type="java.lang.String">
+            <column name="OWNERNAME" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="contactNo" type="java.lang.String">
+            <column name="CONTACTNO" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="city" type="java.lang.String">
+            <column name="CITY" />
+        </property>
+        <property name="companyLogo" type="java.lang.String">
+            <column name="COMPANYLOGO" />
+        </property>
+    </class>
+</hibernate-mapping>

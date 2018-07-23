@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 19, 2017 3:34:52 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.model.Pricing" table="PRICING">
+        <id name="p_id" type="int">
+            <column name="P_ID" />
+            <generator class="increment" />
+        </id>
+        <property name="Weight_from" type="int">
+            <column name="WEIGHT_FROM" />
+        </property>
+        <property name="Weight_to" type="int">
+            <column name="WEIGHT_TO" />
+        </property>
+        <property name="Air_price" type="int">
+            <column name="AIR_PRICE" />
+        </property>
+        <property name="Railway_price" type="int">
+            <column name="RAILWAY_PRICE" />
+        </property>
+        <property name="Car_price" type="int">
+            <column name="CAR_PRICE" />
+        </property>
+        <property name="Grade" type="char">
+            <column name="GRADE" />
+        </property>
+    </class>
+</hibernate-mapping>

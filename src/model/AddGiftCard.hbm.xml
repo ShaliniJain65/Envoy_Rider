@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 14, 2017 10:30:36 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.model.AddGiftCard" table="addgiftcard">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+
+        <property name="offercode" type="java.lang.String">
+            <column name="offercode" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description" />
+        </property>
+        <property name="startdate" type="java.lang.String">
+            <column name="startdate" />
+        </property>
+        <property name="enddate" type="java.lang.String">
+            <column name="enddate" />
+        </property>
+        <property name="reminder" type="java.lang.String">
+            <column name="reminder" />
+        </property>
+        <property name="descriptionToApply" type="java.lang.String">
+            <column name="descriptionToApply" />
+        </property>
+        <property name="tipSelect" type="java.lang.String">
+            <column name="tipSelect" />
+        </property>
+    </class>
+</hibernate-mapping>
