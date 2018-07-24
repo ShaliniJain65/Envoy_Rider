@@ -1,8 +1,10 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="com.model.AddNewOffice" %>
+
+<%@ page import="com.model.AddCourier" %>
 <%@ page import="com.dao.Dao" %>    
-<%@ page import="java.util.*" %>
+<%@ page import="java.util.*" %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,159 +36,252 @@
   <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/wrapkit.css">
 
   <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/demo.css">
-
+  
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/plugins/animate.css/animate.css">
+  
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/Custom_elements.css">
+	
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">	
 </head>
 <body>
-     <main class="wrapkit-wrapper" id="wrapper">
+  <!--[if lt IE 9]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+    <main class="wrapkit-wrapper" id="wrapper">
 
     <!-- ============================================
     HEADER SECTION
     =============================================== -->
     
 
- 
+<%--  
    <jsp:include page="Header.jsp"></jsp:include>
 
     <!-- ============================================
     SIDEBAR SECTION
     =============================================== -->
     <jsp:include page="Sidebar.jsp"></jsp:include>
-
+ --%>
     <!-- ============================================
     MAIN CONTENT SECTION
     =============================================== -->
-    	
-	    <section class="content-wrapper" role="main">
-	      <div class="content">
-	        <div class="content-bar">
-	          <div class="pull-right" role="group">
-	            <a data-toggle="modal" href="#" data-scripts="_includes/setups.js" data-target="#templateSetup" title="Template Setups" aria-label="template setups" class="btn btn-nofill btn-sm btn-default" href="#"><span class="icon-settings fa-lg text-muted"></span></a>
-	          </div>
-	          <ul class="breadcrumb breadcrumb-angle">
-	            <li><a href="#" aria-label="home"><i class="fa fa-home"></i></a></li>
-	            <li><a href="#">Manage Office</a></li>
-	            <li class="active">Add</li>
-	          </ul>
-	        </div><!-- /.content-bar -->
-	        <div class="content-body">
+
+
+    <section class="content-wrapper" role="main">
+      <div class="content">
+        <div class="content-bar">
+          <div class="pull-right" role="group">
+            <a data-toggle="modal" href="#" data-scripts="_includes/setups.js" data-target="#templateSetup" title="Template Setups" aria-label="template setups" class="btn btn-nofill btn-sm btn-default" href="#"><span class="icon-settings fa-lg text-muted"></span></a>
+          </div>
+          <ul class="breadcrumb breadcrumb-angle">
+            <li><a href="#" aria-label="home"><i class="fa fa-home"></i></a></li>
+            <li><a href="#">Manage Office</a></li>
+            <li class="active">Add</li>
+          </ul>
+        </div><!-- /.content-bar -->
+ 			<div class="content-body">
 	          <div class="row">
-	            <div class="col-md-12">
+	            <div class="col-sm-12">
 	              <div class="panel" data-fill-color="true">
+	              
 	              	<ul class="tab">
-						<li><a href="javascript:void(0)"  class="tablinks" onclick="openTab(event,'Add')"><i class="icon-note fa-fw"></i> Add New Office</a></li> 
-						<li><a href="javascript:void(0)" id="defaultOpen" class="tablinks" onclick="openTab(event,'Manage')"><i class="fa fa-users"></i> Manage Office</a></li>
+						<li><a href="javascript:void(0)"  class="tablinks" onclick="openTab(event,'Add')"><i class="icon-note fa-fw"></i> Add Courier</a></li> 
+						<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event,'Manage')"><i class="fa fa-users"></i> Manage User</a></li>
 						<button class="btn animated bounceInUp btn-dark-purple pull-right" style="margin-left: 5px;" type="button" id="btnExport">Export Table  <i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
 						<button type="button" onclick="Reload()" class="btn pull-right btn-dark-green"> <i class="fa fa-spin fa-refresh"></i>  Refresh</button>
-					</ul>
-	                <div id="Add" class="tabcontent panel adjust-panel">
-		                <div class="row">
-		                	<div class="col-sm-12">
-		                  		<h3 class="panel-title"></h3>
-		                  	</div>
-		                </div>	
-	                  	<div class="col-sm-12 text-left">
-	                	 <form class="animated bounceInRight" id="form">
-							<input type="hidden" name="actionCode" value="addNewOffice">
-							<div class="row">
-	                       	 	<div class="col-md-6 mb-2x">
-	                         		<label for="input">Name Of Office</label>
-	                          		<input class="form-control" id="input" placeholder="enter office name" name="Officename">
-	                        	</div>
-	                        	<div class="col-md-6 mb-2x">
-	                         		<label for="input">Owner Of Office</label>
-	                          		<input class="form-control" id="input" placeholder="enter owner name" name="Ownername">
-	                        	</div>
-                        	</div><!-- /row -->
-		                    <div class="row">
-	                        	<div class="col-md-6 mb-2x">
-			                        <label for="input">Email</label>
-			                        <input class="form-control" id="input" placeholder="Enter your Email" name="email">
-			                    </div>
-                        		<div class="col-md-6 mb-2x">
-	                      			<label for="input">Contact Number</label>
-	                      			<input class="form-control" id="input" placeholder="Mobile No." name="contactno">
-	                    		</div><!-- /form-group -->
-	                    	</div>
-		                    <div class="row">
-		                    	<div class="col-md-6 mb-2x">
-			                        <label for="inputTextarea">Address</label>
-			                        <textarea rows="3" class="form-control" id="inputTextarea" name="address" placeholder="Enter your address"></textarea>
-		                    	</div>
-		                 	    <div class="col-md-6 mb-2x">
-		                      		<label for="inputSelect">City</label>
-		                      		<select class="form-control" id="inputSelect" name="city">
-		                        		<option>- Select One -</option>
-		                        		<option>Ahmedabad</option>
-		                        		<option>Surat</option>
-		                        		<option>Gandhinagar</option>
-		                        		<option>Rajkot</option>
-		                        		<option>Surat</option>
-		                      		</select>
-	                    		</div>
-                    		</div>
-	                   		<div class="form-group">
-	                      		<input type="button" onclick="Insert()" class="btn btn-block btn-yellow-green btn-default" value="ADD">
-	                   		</div><!-- /form-group -->
-	                 </form>
+					</ul>			
+					<div id="Add" class="tabcontent panel adjust-panel">
+	                	
+	                <div class="row">
+	                	<div class="col-sm-12">
+	                  		<h3 class="panel-title"></h3>
+	                  	</div>
+	                </div>	
+	                
+	                <div class="col-sm-12 text-left"> 
+	                  <form  class="animated bounceInRight" id="form">
+							<input type="hidden" name="actionCode" value="addOffice">
+	
+						<div class="row">
+                        	<div class="col-sm-4">
+                         		<label for="input"></label>
+                          		<input class="form-control" id="input" placeholder="Office Name" name="officename">
+                       		</div>
+                       		<div class="col-sm-5">
+                         		<label for="input">User ID</label>
+                          		<input class="form-control" id="input" placeholder="Email id" name="userid">
+                        	</div>
+							<div class="col-sm-3">
+                      			<label for="inputSelect">Courier Mode</label>
+                      			<select class="form-control" id="inputSelect" name="mode">
+                        			<option selected disabled>- Select One -</option>
+                       				<option>Air</option>
+                       	 			<option>Bicycle</option>
+                        			<option>Car</option>
+                        			<option>Railway</option>
+                      			</select>
+                      		</div>	
+                        </div>
+                         <br>
+                    
+					<div class="row">
+                        <div class="col-sm-8">
+                     		 <label for="inputTextarea">Source Address</label>
+                     		 <textarea rows="3" class="form-control" id="inputTextarea" placeholder=" Enter Source address" name="sourceaddress"></textarea>
+                     	</div>
+                   		
+                      	<div class="col-sm-4">
+	                      <label for="sourcecity">Source City</label>
+	                      <select class="form-control" id="sourcecity" name="sourcecity">
+	                        <option selected disabled>- Select One -</option>
+	                        <option>Ahmedabad</option>
+	                        <option>Surat</option>
+	                        <option>Gandhinagar</option>
+	                        <option>Rajkot</option>
+	                        <option>Surat</option>
+	                      </select>
+	                      </div>
+                   		
+                   </div>
+                   <br>
+                    <div class="row">    
+                      
+                         <div class="col-sm-8">
+                     		 <label for="destinationaddress">Destination Address</label>
+                      		<textarea rows="3" class="form-control" id="destinationaddress" placeholder="Enter Destination address" name="destinationaddress"></textarea>
+                   		</div>
+                       <div class="col-sm-4">
+	                      <label for="destinationcity">Destination City</label>
+	                      <select class="form-control" id="destinationcity" name="destinationcity">
+	                        <option selected disabled>- Select One -</option>
+	                        <option value="Ahmedabad">Ahmedabad</option>
+	                        <option value="Surat">Surat</option>
+	                        <option value="Gandhinagar">Gandhinagar</option>
+	                        <option value="Rajkot">Rajkot</option>
+	                        <option value="Surat">Surat</option>
+	                      </select>
+	                    </div>
+	                      
+	                    
+	                </div>    
+	                <br>     
+					<div class="row">
+                        <div class="col-md-8 mb-2x">
+                         <label for="input">Weight</label>
+                          <input class="form-control" id="input" placeholder="Weight(in GMS)" name="weight">
+                        </div>
+                        
+                        <div class="col-md-4 mb-2x">
+                      		<label>Quantity</label>
+                      		<label class="select enabled">
+                        	<select enabled="enabled" name="quantity">
+                          	<option selected disabled>- Select One -</option>
+                          	<option value="1">1</option>
+                          	<option value="2">2</option>
+                          	<option value="3">3</option>
+                          	<option value="4">4</option>
+                          	<option value="5">5</option>
+                        	</select>
+                      
+                      		</label>
+                      </div>
+                    </div>  
+                       
+                      <div class="form-group">
+                      
+	                      <input type="button" onclick="Insert()" class="btn btn-block btn-yellow-green btn-default" value="ADD">
+	                    </div><!-- /form-group -->
+	                    
+	                  </form>
 	                </div>
-	               </div>
-	                    <div id="Manage" class="tabcontent panel">
-	                	<p style="margin-right: 5px;"> </p><br>
+	                </div>
+	                
+	                
+	                <div id="Manage" class="tabcontent panel">
+	                	
+	                	
+	                	<p style="margin-right: 5px;"> </p>
+	                 
+	                 
+	                 	 <br>
 	                  	<div class="table-responsive text-center custom-table animated bounceInRight"" id="dvData">
 	                  		<table>
 	                  			<tr>
-	                  				<td>Office Name</td>
-	                  				<td>Owner Name</td>
-	                  				<td>Email</td>
-	                  				<td>Contact No.</td>
-	                  				<td>Address</td>
-	                  				<td>City</td>
+	                  				<td>Courier Id</td>
+	                  				<td>User Email</td>
+	                  				<td>Source Add</td>
+	                  				<td>Source City</td>
+	                  				<td>Destination Add</td>
+	                  				<td>Destination City</td>
+	                  				<td>Mode</td>
+	                  				<td>Weight</td>
+	                  				<td>Quantity</td>
 	                  				<td>Update</td>
 	                  				<td>Delete</td>
 	                  			</tr>
 	                  	<% 
+	                  	
 	                  try{	
 	                  	Dao dao = new Dao();
-	                  	AddNewOffice addnewoffice = new AddNewOffice();
-	                  	List<AddNewOffice> office_list = dao.doLoadOffice();
-	                  	
-	                  	if(!office_list.isEmpty() && office_list != null)
+	                  	AddCourier courier = new AddCourier();
+	                  	List<AddCourier> courier_list = dao.doLoadCouriers();
+	                  	courier_list.size();
+	                  	if(!courier_list.isEmpty() && courier_list != null)
 	                  	{
-	                  		Iterator i = office_list.iterator();
+	                  		Iterator i = courier_list.iterator();
 	                  		while(i.hasNext())
 	                  		{
-	                  			addnewoffice = (AddNewOffice)i.next();
+	                  			courier = (AddCourier)i.next();
 	                  	%>
 	                  	
 	                  		<tr>
-	                  				<td><%= addnewoffice.getOfficeName() %></td>
-	                  				<td><%= addnewoffice.getOwnerName() %></td>
-	                  				<td><%= addnewoffice.getEmail() %></td>
-	                  				<td><%=addnewoffice.getContactNo() %></td>
-	                  				<td><%= addnewoffice.getAddress() %></td>
-	                  				<td><%=addnewoffice.getCity() %></td>
-	                  				<td><a href="<%= request.getContextPath() %>/Controller1?actionCode=update_office_by_officename&name=<%= addnewoffice.getOfficeName()%>"><i class="fa fa-pencil-square" style="color: #ffebcd" aria-hidden="true"></i></a></td>
-	                  				<td><a onclick="return confirm('Are you sure want to delete?')" href="<%= request.getContextPath() %>/Controller1?actionCode=delete_office&name=<%= addnewoffice.getOfficeName()%>"><i class="fa fa-minus-square" style="color: #FA8072" aria-hidden="true"></a></i></td>
+	                  				<td><%= courier.getCourierid() %></td>
+	                  				<td><%= courier.getUserEmail() %></td>
+	                  				<td><%= courier.getSourceaddress() %></td>
+	                  				<td><%= courier.getSourcecity() %></td>
+	                  				<td><%= courier.getDestinationcity() %></td>
+	                  				<td><%= courier.getDestinationaddress() %></td>
+	                  				<td><%= courier.getMode() %></td>
+	                  				<td><%= courier.getWeight() %></td>
+	                  				<td><%= courier.getQuantity() %></td>
+	                  				<td><a href="<%= request.getContextPath() %>/Controller1?actionCode=update_courier&id=<%= courier.getId()%>"><i class="fa fa-pencil-square" style="color: #ffebcd" aria-hidden="true"></i></a></td>
+	                  				<td><a onclick="return confirm('Are you sure want to delete?')" href="<%= request.getContextPath() %>/Controller1?actionCode=delete_courier&id=<%= courier.getId()%>"><i class="fa fa-minus-square" style="color: #FA8072" aria-hidden="true"></a></i></td>
 	                  			</tr>
+	                  	
 	                  	<% 				
+	                  			
 	                  		}
 	                  	}
 	                  }catch(Exception e){e.printStackTrace();}	
 	                  	%>
+	                  			
 	                  		</table>
 	                  		</div>
+	                  	
 	                </div>
-	              </div>
-	              </div>
-	          </div>
-	        </div>
-		</section>
-	       
-    <!-- ============================================
+	                
+	                
+	                
+	              </div><!-- /panel-basicform -->
+	                    
+	              </div><!-- /.cols -->
+	          </div><!-- /.row -->
+	
+	        </div><!-- /.content-body -->
+	
+	      </section><!-- /.content -->
+	                    
+	                    
+
+
+
+	<!-- ============================================
     FOOTER SECTION
     =============================================== -->
     
-    <jsp:include page="Footer.jsp"></jsp:include>
+    <%-- <jsp:include page="Footer.jsp"></jsp:include> --%>
   </main><!-- /#MAIN -->
 
 
@@ -209,10 +304,7 @@
   <!-- PLUGIN SETUPS: vendors & dependencies setups -->
   <script src="<%=request.getContextPath() %>/scripts/plugin-setups.js"></script>
   <!-- END PLUGIN SETUPS -->
-
-
-  <!-- Google Analytics: change UA-71722129-1 to be your site's ID. -->
-  <script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function(){
 	$("#btnExport").click(function(e){
 		window.open('data:application/vnd.ms-excel,' + $('#dvData').html());
@@ -279,6 +371,7 @@ $(document).ready(function(){
 	
 	
 </script>
+  <!-- Google Analytics: change UA-71722129-1 to be your site's ID. -->
   <script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -287,5 +380,11 @@ $(document).ready(function(){
     r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
     ga('create','UA-71722129-1');ga('send','pageview');
   </script>
+  
+  
+  
+</body>
+</html>
+
 </body>
 </html>
