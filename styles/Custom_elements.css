@@ -1,0 +1,175 @@
+@CHARSET "ISO-8859-1";
+
+
+.btn-primary{
+	    background: steelblue !important;
+    color: white;
+    font-family: cursive;
+}
+
+.btn-info{
+	background: darkorange;
+    color: white;
+    
+    font-family: cursive;
+}
+.btn-danger{
+	    background: maroon;
+    color: white;
+    font-family: cursive;
+}
+
+
+body{
+	font-family: Titillium Web !important;
+}
+
+.sidebar{
+	/* background:linear-gradient(to right, #000000 0%,#254f67 28%,#181221 99%) !important; */
+	background-image: url("../images/sidebar.jpg") !important;
+}
+.header{
+	/* background-image: url("../images/texture_colors.jpg") !important; */
+	background: linear-gradient(to right, #e2e2e2 0%,#d1d1d1 14%,#fefefe 30%,#d1d1d1 54%,#dbdbdb 73%,#fefefe 100%) !important; 
+}
+.nav.nav-contrast-teal.nav-stacked.nav-tabs>li>a:focus, .nav.nav-contrast-teal.nav-stacked.nav-tabs>li>a:hover{
+	
+    color: darkslategray;
+    border-bottom: none;
+    border-right: none;
+    border-left: 3px solid darkslategray;
+}
+.nav.nav-contrast-teal.nav-tabs>li>a{
+	font-size: 16px;
+}
+
+.text-bold{
+	font-weight: bold;
+}
+
+.custom-table>table{
+	background: linear-gradient(45deg, #3f4c6b 0%,#67a7af 16%,#3f4c6b 46%,#67a7af 72%,#3f4c6b 100%);
+	color: #fff;
+	padding: 10px;
+	margin: 5px;
+	margin: auto;
+	font-size:15px;
+	border-collapse: collapse;
+	width: 100%;
+	
+	
+	max-width: 100%;
+	
+}
+
+.custom-table>table>tbody>tr>td{
+	padding: 7px;
+	border: 1px solid threeddarkshadow;
+	
+}
+
+@CHARSET "ISO-8859-1";
+input[type="text"]{
+	font-family: Raleway !important;
+	
+}
+ul.tab{
+	    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-bottom:0px;
+    border-radius: 2px;
+    background-color: #708090;
+}
+ul.tab li{
+	float: left;
+}
+ul.tab li a{
+	display: inline-block;
+	color: #fff;
+	font-family: Titillium Web !important;
+	border:2px solid #fff;
+	text-align: center;
+	padding: 14px 16px;
+	
+	text-decoration: none;
+}
+/* Change background color of links on hover */
+ul.tab li a:hover {
+   background-color: #f5f5f5;
+    color: #000; 
+}
+
+/* Create an active/current tablink class */
+ul.tab li  .active {
+    background-color:#fff;
+    font-weight:bold;
+    font-size:16px;
+    color:#4682B4;
+    border-bottom: 0px;
+    border:1px solid white;
+    border-bottom: 0px;
+}
+
+.tabcontent{
+	display: none;
+	padding: 30px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    text-align: center;
+}
+.e-12{
+	width:97% !important;
+	margin-left: 15px;
+}
+
+.error {
+    color: $errorMsgColor;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */1
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.my_span {
+    font-size: 20px;
+    
+    color: #4682B4;
+    font-family: Raleway;
+}
+
+.btn-yellow-green{
+	background: #9acd32;
+	color: white;
+	font-weight: bold;
+	
+}
+
+.btn-gray{
+	background: #708090;
+	color: white;
+	font-weight: bold;
+}
